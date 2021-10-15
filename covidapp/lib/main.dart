@@ -40,11 +40,29 @@ class _SplashScreen extends State<SplashScreen> {
     return Container(
       alignment: Alignment.center,
       padding: EdgeInsets.all(15),
-      color: Colors.lightGreen.shade100,
+      color: Colors.white,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("images/coronadr.png"),
-          Text("The Robotics Forums")
+          Image.asset("images/sp.png"),
+          Text(
+            '\nCovid Tracker App',
+            style: TextStyle(
+              color: Color.fromRGBO(39, 105, 171, 1),
+              fontSize: MediaQuery.of(context).size.width / 12,
+              decoration: TextDecoration.none,
+              fontFamily: 'Nunito',
+            ),
+          ),
+          Text(
+            '\n\n\n\n\n\n\nMade with ❤️ by TRF ',
+            style: TextStyle(
+              color: Color.fromRGBO(39, 105, 171, 1),
+              fontSize: MediaQuery.of(context).size.width / 20,
+              decoration: TextDecoration.none,
+              fontFamily: 'Nunito',
+            ),
+          ),
         ],
       ),
     );
