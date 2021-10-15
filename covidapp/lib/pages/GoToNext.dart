@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import, must_be_immutable, prefer_typing_uninitialized_variables, avoid_unnecessary_containers, non_constant_identifier_names, unused_field, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import, must_be_immutable, prefer_typing_uninitialized_variables, avoid_unnecessary_containers, non_constant_identifier_names, unused_field, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element
 
 import 'dart:ffi';
 
@@ -81,18 +81,32 @@ class GoToNext extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Stat_Card("Total Cases", cases.toString(),
+                  Stat_Card(
+                      "Total Cases",
+                      (int.parse(cases.toString()) / 1000000)
+                              .toStringAsFixed(2) +
+                          " M",
                       Color.fromRGBO(80, 200, 120, 1)),
-                  Stat_Card("Total Recovered", recovered.toString(),
+                  Stat_Card(
+                      "Total Recovered",
+                      (int.parse(recovered.toString()) / 1000000)
+                              .toStringAsFixed(2) +
+                          " M",
                       Color.fromRGBO(80, 200, 120, 1)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Stat_Card("Total Deaths", deaths.toString(),
+                  Stat_Card(
+                      "Total Deaths",
+                      (int.parse(deaths.toString()) / 1000).toStringAsFixed(2) +
+                          " K",
                       Color.fromRGBO(255, 191, 0, 1)),
-                  Stat_Card("Active", active.toString(),
+                  Stat_Card(
+                      "Active",
+                      (int.parse(active.toString()) / 1000).toStringAsFixed(2) +
+                          " K",
                       Color.fromRGBO(255, 191, 0, 1)),
                 ],
               ),
@@ -108,9 +122,17 @@ class GoToNext extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Stat_Card("Critical", critical.toString(),
+                  Stat_Card(
+                      "Critical",
+                      (int.parse(critical.toString()) / 1000)
+                              .toStringAsFixed(2) +
+                          " K",
                       Color.fromRGBO(255, 203, 164, 1)),
-                  Stat_Card("Total Tests", tests.toString(),
+                  Stat_Card(
+                      "Total Tests",
+                      (int.parse(tests.toString()) / 1000000)
+                              .toStringAsFixed(2) +
+                          " M",
                       Color.fromRGBO(255, 203, 164, 1)),
                 ],
               ),

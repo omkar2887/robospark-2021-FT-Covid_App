@@ -55,7 +55,7 @@ class _SplashScreen extends State<SplashScreen> {
             ),
           ),
           Text(
-            '\n\n\n\n\n\n\nMade with ❤️ by TRF ',
+            '\n\n\n\n\n\n\nThe Robotics Forums',
             style: TextStyle(
               color: Color.fromRGBO(39, 105, 171, 1),
               fontSize: MediaQuery.of(context).size.width / 20,

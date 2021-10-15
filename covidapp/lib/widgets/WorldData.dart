@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import, must_be_immutable, prefer_typing_uninitialized_variables
+// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import, must_be_immutable, prefer_typing_uninitialized_variables, prefer_const_constructors
 
 import 'dart:ffi';
 
@@ -35,12 +35,12 @@ class WorldData extends StatefulWidget {
 
 class _WorldData extends State<WorldData> {
   Stat stat = Stat(
-    cases: null,
-    deaths: null,
-    recovered: null,
-    todayactive: null,
-    todaydeaths: null,
-    todaycases: null,
+    cases: 0,
+    deaths: 0,
+    recovered: 0,
+    todayactive: 0,
+    todaydeaths: 0,
+    todaycases: 0,
   );
 
   void getStats() async {
@@ -92,28 +92,52 @@ class _WorldData extends State<WorldData> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Stat_Card("Total Cases", stat.cases.toString(),
+              Stat_Card(
+                  "Total Cases",
+                  (int.parse(stat.cases.toString()) / 1000000)
+                          .toStringAsFixed(2) +
+                      " M",
                   const Color.fromRGBO(80, 200, 120, 1)),
-              Stat_Card("Total Recovered", stat.recovered.toString(),
-                  Color.fromRGBO(80, 200, 120, 1)),
+              Stat_Card(
+                  "Total Recovered",
+                  (int.parse(stat.recovered.toString()) / 1000000)
+                          .toStringAsFixed(2) +
+                      " M",
+                  const Color.fromRGBO(80, 200, 120, 1)),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Stat_Card("Total Deaths", stat.deaths.toString(),
+              Stat_Card(
+                  "Total Deaths",
+                  (int.parse(stat.deaths.toString()) / 1000000)
+                          .toStringAsFixed(2) +
+                      " M",
                   Color.fromRGBO(255, 191, 0, 1)),
-              Stat_Card("Active", stat.todayactive.toString(),
+              Stat_Card(
+                  "Active",
+                  (int.parse(stat.todayactive.toString()) / 1000000)
+                          .toStringAsFixed(2) +
+                      " M",
                   Color.fromRGBO(255, 191, 0, 1)),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Stat_Card("Deaths Today", stat.todaydeaths.toString(),
+              Stat_Card(
+                  "Deaths Today",
+                  (int.parse(stat.todaydeaths.toString()) / 1000)
+                          .toStringAsFixed(2) +
+                      " K",
                   Colors.redAccent),
               Stat_Card(
-                  "Cases Today", stat.todaycases.toString(), Colors.redAccent),
+                  "Cases Today",
+                  (int.parse(stat.todaycases.toString()) / 1000000)
+                          .toStringAsFixed(2) +
+                      " M",
+                  Colors.redAccent),
             ],
           )
         ],
